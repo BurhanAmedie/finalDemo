@@ -1,10 +1,10 @@
 package mil.af.rso.lite.dbgateway;
 
-public class InputValiadationException extends RuntimeException {
+public class InputValidationException extends RuntimeException {
 
     // reposne to invlaid inputs 
 
-    public InputValiadationException(String sqlStatement ) {
+    public InputValidationException(String sqlStatement ) {
         super("SQL command can not be used for this path: "+ sqlStatement);
     }
     

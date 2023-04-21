@@ -10,7 +10,7 @@ public class ErrorHandler {
     // custom Error format is generated using this class
     public static Map<String, Object> CreateResponse(String message, String Errorcode) {
         Map<String, Object> map = new HashMap<String, Object>();
-            map.put("developermessage", message);
+            map.put("developerMessage", message);
             map.put("errorCode", Errorcode);
 
             return map;

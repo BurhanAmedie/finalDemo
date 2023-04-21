@@ -17,10 +17,6 @@ public class Application implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments applicationArguments) throws Exception {
-        logger.debug("Debugging log");
-        logger.info("Info log");
-        logger.warn("This is a warning!");
-        logger.error("There is an Error");
-        logger.fatal("Fatal error. Please fix me.");
+        
     }
 }

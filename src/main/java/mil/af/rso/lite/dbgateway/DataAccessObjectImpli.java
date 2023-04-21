@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 
 
+
 @Repository
 public class DataAccessObjectImpli implements DataAccessObject   {
     
@@ -20,24 +21,28 @@ JdbcTemplate jdbcTemplate ;
 
 @Override
 public List <Map<String,Object>> getAll( String sqlQuery) {
+        String sqlCommand = sqlQuery.trim() ; 
+
     
         // SQL command to query records in a table
-        if(sqlQuery.startsWith("SELECT")) {
-            return jdbcTemplate.queryForList(sqlQuery);
+        if(sqlCommand.toUpperCase().startsWith("SELECT")) {
+            return jdbcTemplate.queryForList(sqlCommand);
 
         } else {
-            throw new InputValiadationException(sqlQuery);
+            throw new InputValidationException(sqlQuery);
         }   
      
 }
 
 @Override
 public int save( String sqlQuery ) {
+    String sqlCommand = sqlQuery.trim() ; 
+
     // SQL command to insert new records in a table
-    if(sqlQuery.startsWith("INSERT")) {
-        return jdbcTemplate.update(sqlQuery);
+    if(sqlCommand.toUpperCase().startsWith("INSERT")) {
+        return jdbcTemplate.update(sqlCommand);
     } else {
-        throw new InputValiadationException(sqlQuery);
+        throw new InputValidationException(sqlQuery);
     }
    
 }
@@ -45,21 +50,24 @@ public int save( String sqlQuery ) {
 
 @Override
 public int update(String sqlQuery) {
+    String sqlCommand = sqlQuery.trim() ; 
+
     // SQL command to update existing records in a table
-    if(sqlQuery.startsWith("UPDATE")) {
-        return jdbcTemplate.update(sqlQuery);
+    if(sqlCommand.toUpperCase().startsWith("UPDATE")) {
+        return jdbcTemplate.update(sqlCommand);
     } else {
-        throw new InputValiadationException(sqlQuery);
+        throw new InputValidationException(sqlQuery);
     }
 }
 
 @Override
 public int delete(String sqlQuery) {
+    String sqlCommand = sqlQuery.trim() ; 
     // SQL command to delete  existing records in a table
-    if(sqlQuery.startsWith("DELETE")) {
-        return jdbcTemplate.update(sqlQuery);
+    if(sqlCommand.toUpperCase().startsWith("DELETE")) {
+        return jdbcTemplate.update(sqlCommand);
     } else {
-        throw new InputValiadationException(sqlQuery);
+        throw new InputValidationException(sqlQuery);
     }
 }
     
